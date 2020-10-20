@@ -51,3 +51,19 @@ steps:
     candidate: '${{BuildImage}}'
     tag: '${{CF_SHORT_REVISION}}'
     registry: dockerhub
+    
+  deploy_to_k8:
+    title: deploying to cluster
+    kind: deploy
+    kind: kubernetes
+    cluster: ag-idc050
+    namespace: default
+    service: demochat
+    candidate:
+      image: ${{BuildImage}}
+      registry: dockerhub
+  when:
+    branch:
+      only:
+        - master
+  
