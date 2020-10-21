@@ -42,5 +42,5 @@ steps:
     stage: deploy
     candidate:
       image: ${{BuildImage}}
-   #   registry: dockerhub
+      registry: syuo7
       
