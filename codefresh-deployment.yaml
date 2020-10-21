@@ -54,7 +54,7 @@ steps:
     
   deploy_to_k8:
     title: deploying to cluster
-    kind: deploy
+    type: deploy
     kind: kubernetes
     cluster: ag-idc050
     namespace: default
