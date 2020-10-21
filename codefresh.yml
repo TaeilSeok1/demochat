@@ -4,7 +4,7 @@ stages:
 - preparation
 - build
 - test
-- push
+# - push
 
 steps:
 
@@ -45,11 +45,12 @@ steps:
         set:
           - '${{BuildImage.imageId}}':
               - CF_QUALITY: false
-              
-  PushToDockerHub:
-    type: push
-    stage: push
-    candidate: '${{BuildImage}}'
-    tag: '${{CF_SHORT_REVISION}}'
-    registry: dockerhub
-    image_name: syuo7/demochat
+      
+ # PushToDockerHub:
+  #  type: push
+   # stage: push
+    #candidate: '${{BuildImage}}'
+    #tag: '${{CF_SHORT_REVISION}}'
+    #registry: dockerhub
+    #image_name: syuo7/demochat
+    
