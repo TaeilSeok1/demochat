@@ -12,14 +12,14 @@ steps:
     title: 'Cloning main repository...'
     type: git-clone
     stage: preparation
-    repo: Codefresh-Examples/demochat
+    repo: TaeilSeok1/demochat
     revision: ${{CF_BRANCH}}
     
   BuildImage:
     title: Building Docker Image
     stage: build
     type: build
-    image_name: codefresh/demochat
+    image_name: syuo7/demochat
     dockerfile: Dockerfile
     tag: '${{CF_SHORT_REVISION}}'
     
