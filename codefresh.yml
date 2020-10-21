@@ -14,6 +14,7 @@ steps:
     stage: preparation
     repo: TaeilSeok1/demochat
     revision: ${{CF_BRANCH}}
+    git: github
     
   BuildImage:
     title: Building Docker Image
@@ -51,3 +52,4 @@ steps:
     candidate: '${{BuildImage}}'
     tag: '${{CF_SHORT_REVISION}}'
     registry: dockerhub
+    image_name: syuo7/demochat
