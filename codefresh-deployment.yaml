@@ -39,7 +39,7 @@ steps:
     cluster: ag-idc050
     namespace: default
     service: demochat
-    stgae: deply
+    stage: deploy
     candidate:
       image: ${{BuildImage}}
       registry: dockerhub
