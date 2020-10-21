@@ -44,8 +44,3 @@ steps:
       image: ${{BuildImage}}
       registry: dockerhub
       
-  when:
-    branch:
-      only:
-        - master
-  
