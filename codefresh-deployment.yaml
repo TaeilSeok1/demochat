@@ -3,7 +3,7 @@ version: '1.0'
 stages:
 - preparation
 - build
-- test
+- deploy
 # - push
 
 steps:
@@ -24,28 +24,6 @@ steps:
     dockerfile: Dockerfile
     tag: '${{CF_SHORT_REVISION}}'
     
-  RunningUnitTests:
-    title: Running Unit Tests
-    stage: test
-    image: ${{BuildImage}}
-    working_directory: IMAGE_WORK_DIR
-    commands:
-      - npm test
-    on_success:
-      metadata:
-        set:
-          - '${{BuildImage.imageId}}':
-              - CF_QUALITY: true
-              - commit_message: '${{CF_COMMIT_MESSAGE}}'
-              - Commit: '${{CF_SHORT_REVISION}}'
-              - Author: '${{CF_COMMIT_AUTHOR}}'
-              - Commit_url: '${{CF_COMMIT_URL}}'
-    on_fail:
-      metadata:
-        set:
-          - '${{BuildImage.imageId}}':
-              - CF_QUALITY: false
-      
  # PushToDockerHub:
   #  type: push
    # stage: push
@@ -61,6 +39,7 @@ steps:
     cluster: ag-idc050
     namespace: default
     service: demochat
+    stgae: deply
     candidate:
       image: ${{BuildImage}}
       registry: dockerhub
